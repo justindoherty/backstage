@@ -53,7 +53,7 @@ function matchFilter(filter?: string): (entry: RadarEntry) => boolean {
 
   return entry => {
     const text = `${entry.title} ${
-      entry.timeline[0]?.description || ''
+      entry.description || entry.timeline[0]?.description || ''
     }`.toLocaleLowerCase('en-US');
     return terms.every(term => text.includes(term));
   };
